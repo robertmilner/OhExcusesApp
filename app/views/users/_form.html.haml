@@ -1,0 +1,22 @@
+= form_for @user do |f|
+
+	-if @user.errors.any?
+		= render 'layouts/errors', :obj => @user
+
+	%ul
+		%li= f.label :name
+		%li= f.text_field :name
+
+		%li= f.label :email
+		%li= f.text_field :email
+
+		%li= f.label :password
+		%li= f.password_field :password
+
+		%li= f.label :password_confirmation, "Confirm Password"
+		%li= f.password_field :password_confirmation
+
+		%li= f.label :location_id
+		%li= f.number_field :location_id
+
+		%li= f.submit 'Save'

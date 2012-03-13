@@ -1,0 +1,23 @@
+%h1 Listing excuses
+
+%table
+  %tr
+    %th Text
+    %th User
+    %th Location
+    %th
+    %th
+    %th
+
+  - @excuses.each do |excuse|
+    %tr
+      %td= excuse.text
+      %td= excuse.user_id
+      %td= excuse.location_id
+      %td= link_to 'Show', excuse
+      %td= link_to 'Edit', edit_excuse_path(excuse)
+      %td= link_to 'Destroy', excuse, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Excuse', new_excuse_path

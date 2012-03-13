@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Text:
+  = @excuse.text
+%p
+  %b User:
+  = @excuse.user_id
+%p
+  %b Location:
+  = @excuse.location_id
+
+= link_to 'Edit', edit_excuse_path(@excuse)
+\|
+= link_to 'Back', excuses_path
