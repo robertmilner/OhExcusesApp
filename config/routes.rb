@@ -1,21 +1,17 @@
 OhExcusesApp2::Application.routes.draw do
 
-  get "pages/home"
-
-  get "pages/search"
-
-  get "pages/location"
-
-  get "pages/tag"
-
-  get "pages/favorite"
-
-  get "pages/user"
+  # pages_controller
+  get   '/home'       => 'pages#home',        :as => :home
+  get   '/search'     => 'pages#search',      :as => :search
+  get   '/location'   => 'pages#location',    :as => :location
+  get   '/tag'        => 'pages#tag',         :as => :tag
+  get   '/favorite'   => 'pages#favorite',    :as => :favorite
+  get   '/user'       => 'pages#user',        :as => :user
 
   # sessions_controller
-  get     '/login'      => 'sessions#new',      :as => :login
-  post    '/login'      => 'sessions#create'
-  get     '/logout'     => 'sessions#destroy',  :as => :logout
+  get     '/login'    => 'sessions#new',      :as => :login
+  post    '/login'    => 'sessions#create'
+  get     '/logout'   => 'sessions#destroy',  :as => :logout
 
   # users_controller
   resources :users
@@ -30,6 +26,6 @@ OhExcusesApp2::Application.routes.draw do
   resources :excuses
 
   # root_url
-  root :to => 'excuses#index'
+  root :to => 'pages#home'
 
 end
