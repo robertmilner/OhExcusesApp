@@ -1,19 +1,10 @@
 = form_for @excuse do |f|
-  -if @excuse.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@excuse.errors.count, "error")} prohibited this excuse from being saved:"
-      %ul
-        - @excuse.errors.full_messages.each do |msg|
-          %li= msg
 
-  .field
-    = f.label :text
-    = f.text_field :text
-  .field
-    = f.label :user_id
-    = f.number_field :user_id
-  .field
-    = f.label :location_id
-    = f.number_field :location_id
-  .actions
-    = f.submit 'Save'
+	-if @excuse.errors.any?
+		= render 'layouts/errors', :obj => @excuse
+
+	%ul
+		%li= f.label :text
+		%li= f.text_field :text
+
+		%li= f.submit 'Save'

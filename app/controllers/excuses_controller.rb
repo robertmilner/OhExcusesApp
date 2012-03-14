@@ -1,4 +1,8 @@
 class ExcusesController < ApplicationController
+
+  # filters
+  before_filter :current_user
+
   # GET /excuses
   # GET /excuses.json
   def index
@@ -40,10 +44,13 @@ class ExcusesController < ApplicationController
   # POST /excuses
   # POST /excuses.json
   def create
+    @user = @current_user
     @excuse = Excuse.new(params[:excuse])
+    @excuse.user = @user
+    @excuse.location_id = @user.location_id
 
     respond_to do |format|
-      if @excuse.save
+      if @excuse.save!
         format.html { redirect_to @excuse, notice: 'Excuse was successfully created.' }
         format.json { render json: @excuse, status: :created, location: @excuse }
       else

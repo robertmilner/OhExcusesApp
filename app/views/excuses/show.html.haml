@@ -5,11 +5,10 @@
   = @excuse.text
 %p
   %b User:
-  = @excuse.user_id
+  = @excuse.user.name
 %p
   %b Location:
-  = @excuse.location_id
+  = @excuse.location.name unless @excuse.location.nil?
 
 = link_to 'Edit', edit_excuse_path(@excuse)
-\|
 = link_to 'Back', excuses_path

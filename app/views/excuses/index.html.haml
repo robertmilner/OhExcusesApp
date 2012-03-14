@@ -12,8 +12,8 @@
   - @excuses.each do |excuse|
     %tr
       %td= excuse.text
-      %td= excuse.user_id
-      %td= excuse.location_id
+      %td= excuse.user.name
+      %td= excuse.location.name unless excuse.location.nil?
       %td= link_to 'Show', excuse
       %td= link_to 'Edit', edit_excuse_path(excuse)
       %td= link_to 'Destroy', excuse, :confirm => 'Are you sure?', :method => :delete
