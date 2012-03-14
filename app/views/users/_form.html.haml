@@ -16,7 +16,8 @@
 		%li= f.label :password_confirmation, "Confirm Password"
 		%li= f.password_field :password_confirmation
 
-		%li= f.label :location_id
-		%li= f.number_field :location_id
+		= fields_for :location do |f_loc|
+			%li= f_loc.label :name, "Location"
+			%li= f_loc.text_field :name
 
 		%li= f.submit 'Save'

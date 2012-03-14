@@ -2,17 +2,14 @@
 	= render 'layouts/notice', :notice => notice, :type => "info"
 
 %ul
-  %li Name:
-  %li= @user.name
+	%li Name:
+	%li= @user.name
 
-  %li Email:
-  %li= @user.email
+	%li Email:
+	%li= @user.email
 
-  %li Password digest:
-  %li= @user.password_digest
-
-  %li Location:
-  %li= @user.location_id
+	%li Location:
+	%li= @user.location.name unless @user.location.nil?
 
 = link_to 'Edit', edit_user_path(@user)
 = link_to 'Back', users_path

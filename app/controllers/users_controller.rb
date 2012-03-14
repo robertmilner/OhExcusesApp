@@ -13,6 +13,8 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    session[:user_id] = params[:id]
+
     @user = User.find(params[:id])
 
     respond_to do |format|
@@ -34,13 +36,16 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user = User.find(params[:id])
+    @user = User.find_by_id(params[:id])
+    @location = @user.location
   end
 
   # POST /users
   # POST /users.json
   def create
     @user = User.new(params[:user])
+    @location = Location.find_or_initialize_by_name(params[:location])
+    @user.location = @location
 
     respond_to do |format|
       if @user.save
@@ -56,7 +61,9 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.json
   def update
-    @user = User.find(params[:id])
+    @user = User.find_by_id(params[:id])
+    @location = Location.find_or_initialize_by_name(params[:location])
+    @user.location = @location
 
     respond_to do |format|
       if @user.update_attributes(params[:user])

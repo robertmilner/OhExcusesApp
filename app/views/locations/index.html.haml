@@ -2,6 +2,7 @@
 
 %table
   %tr
+    %th Id
     %th Name
     %th
     %th
@@ -9,6 +10,7 @@
 
   - @locations.each do |location|
     %tr
+      %td= location.id
       %td= location.name
       %td= link_to 'Show', location
       %td= link_to 'Edit', edit_location_path(location)
