@@ -1,5 +1,17 @@
 OhExcusesApp2::Application.routes.draw do
 
+  get "pages/home"
+
+  get "pages/search"
+
+  get "pages/location"
+
+  get "pages/tag"
+
+  get "pages/favorite"
+
+  get "pages/user"
+
   # sessions_controller
   get     '/login'      => 'sessions#new',      :as => :login
   post    '/login'      => 'sessions#create'
