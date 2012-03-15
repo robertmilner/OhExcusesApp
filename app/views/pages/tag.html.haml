@@ -1,2 +1,6 @@
 - provide(:title, 'Tag')
-%p Find me in app/views/pages/tag.html.haml
+= render 'search_box', :type => 'tag', :placeholder => 'Search by tags'
+
+%ul
+- @tags do |tag|
+	%li= tag

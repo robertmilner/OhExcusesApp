@@ -9,5 +9,7 @@ class Location < ActiveRecord::Base
   # callbacks
 
   # methods
-
+  # def self.search(total)
+  #   self.
+  # end
 end

@@ -12,8 +12,8 @@ class Excuse < ActiveRecord::Base
 
 
   # methods
-  def self.random(number)
-    self.find(:all, order: 'random()', limit: number)
+  def self.random(total)
+    self.find(:all, order: 'random()', limit: total)
   end
 
 end
