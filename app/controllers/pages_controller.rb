@@ -7,7 +7,11 @@ class PagesController < ApplicationController
   end
 
   def location
-    @locations = Location.all
+    if params[:search]
+      @locations = Location.where('name LIKE ?', "%#{params[:search]}%")
+    else
+      @locations = Location.all
+    end
   end
 
   def tag
