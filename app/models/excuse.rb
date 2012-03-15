@@ -12,8 +12,22 @@ class Excuse < ActiveRecord::Base
 
 
   # methods
+  # pages_contoller#excuses
   def self.random(total)
     self.find(:all, order: 'random()', limit: total)
+  end
+
+  def self.search(search, total)
+    if search
+      search_length = search.split.length
+      # keyword type search with words in specific order
+      # find(:all, :conditions => ['text LIKE ?', "%#{search}%"], :limit => total, :order => 'random()')
+      
+      # completely fuzzy search, no word order necessary 
+      find(:all, :conditions => [(['text LIKE ?'] * search_length).join(' AND ')] + search.split.map { |name| "%#{name}%" }, :limit => total, :order => 'random()')
+    else
+      find(:all, :limit => total, :order => 'random()')
+    end
   end
 
 end

@@ -1,5 +1,5 @@
 - provide(:title, 'Location')
-= render 'search_box', :type => 'location', :placeholder => 'Search by locations'
+= render 'search_box', :url_path => 'location_path', :type => 'location', :placeholder => 'Search by locations'
 
 %ul
 - @locations.each do |location|

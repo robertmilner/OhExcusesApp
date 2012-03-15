@@ -1,7 +1,7 @@
 OhExcusesApp2::Application.routes.draw do
 
   # pages_controller
-  get   '/home'             => 'pages#home',        :as => :home
+  get   '/excuse'           => 'pages#excuse',      :as => :excuse
   get   '/search'           => 'pages#search',      :as => :search
   get   '/location'         => 'pages#location',    :as => :location
   get   '/location/:search' => 'pages#location'
@@ -27,6 +27,6 @@ OhExcusesApp2::Application.routes.draw do
   resources :excuses
 
   # root_url
-  root :to => 'pages#home'
+  root :to => 'pages#excuse'
 
 end

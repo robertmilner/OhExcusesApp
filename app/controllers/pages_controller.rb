@@ -1,9 +1,12 @@
 class PagesController < ApplicationController
-  def home
-    @excuses = Excuse.random(1)
+  def excuse
+    # arguments [0] = total number of results
+    @excuses = Excuse.random(5)
   end
 
   def search
+    # arguments [0] = params[:search], [1] = total number of results
+    @excuses = Excuse.search(params[:words], 5)
   end
 
   def location
