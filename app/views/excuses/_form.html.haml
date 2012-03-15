@@ -1,7 +1,7 @@
 = form_for @excuse do |f|
 
 	-if @excuse.errors.any?
-		= render 'layouts/errors', :obj => @excuse
+		= render 'layouts/error_messages', :obj => @excuse
 
 	%ul
 		%li= f.label :text

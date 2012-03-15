@@ -1,2 +1,6 @@
-%h1 Pages#location
-%p Find me in app/views/pages/location.html.haml
+- provide(:title, 'Location')
+= render 'search_box', :type => 'location', :placeholder => 'Search by locations'
+
+%ul
+- @locations.each do |location|
+	%li= link_to location.name, locations_url

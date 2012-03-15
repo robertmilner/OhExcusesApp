@@ -1,2 +1,4 @@
-%h1 Pages#home
-%p Find me in app/views/pages/home.html.haml
+- provide(:title, 'Home')
+%ul
+- @excuses.each do |excuse|
+	%li= excuse.text
