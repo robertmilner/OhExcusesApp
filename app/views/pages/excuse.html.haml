@@ -2,8 +2,8 @@
 
 - if @excuses.count >= 1
 	%ul
-	- @excuses.each do |excuse|
-		%li= excuse.text
+		- @excuses.each do |excuse|
+			%li= excuse.text
 - else
 	%ul
 		%li There's no excuse for no excuses! There's only an excuse for Oh, Excuses... Why don't you create one?
