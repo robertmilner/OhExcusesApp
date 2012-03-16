@@ -1,9 +1,10 @@
 class User < ActiveRecord::Base
 
   # associations
-  belongs_to :location, :class_name => "Location", :foreign_key => "location_id"
-  has_many :excuses, :class_name => "Excuse", :foreign_key => "user_id"
-  has_many :searches, :class_name => "Search", :foreign_key => "user_id"
+  belongs_to :location
+  has_many :excuses
+  has_many :searches
+  has_many :favorites
 
   # validations
   has_secure_password

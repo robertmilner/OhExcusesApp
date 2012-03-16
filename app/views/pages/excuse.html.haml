@@ -1,9 +1,11 @@
 - provide(:title, 'Excuses')
 
-- if @excuses.count >= 1
+- if @excuses.count > 0
 	%ul
 		- @excuses.each do |excuse|
-			%li= excuse.text
+			%li
+				= excuse.text
+				%span= button_to "Favorite", favorite_url(excuse)
 - else
 	%ul
 		%li There's no excuse for no excuses! There's only an excuse for Oh, Excuses... Why don't you create one?

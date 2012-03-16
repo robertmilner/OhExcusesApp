@@ -1,2 +1,19 @@
 - provide(:title, 'User')
-%p Find me in app/views/pages/user.html.haml
+
+%h2 Your excuses
+- if @excuses.count > 0
+	%ul
+		- @excuses.each do |excuse|
+			%li= excuse.text
+- else
+	%ul
+		%li You haven't created any excuses yet! What's your excuse?
+
+%h2 Your favorites
+- if @favorites.count > 0
+	%ul
+		- @favorites.each do |excuse|
+			%li= excuse.text
+- else
+	%ul
+		%li You don't have any favorite excuses!

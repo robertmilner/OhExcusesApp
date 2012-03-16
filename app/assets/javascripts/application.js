@@ -13,3 +13,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+// // need to get button working first
+// // enable and disable button
+// // favorite_btn
+// $(document).ready(function($) {
+//     $("#disableBtn").click(function() {
+//         $("#clearBtn").attr("disabled", "disabled");
+//     }); // click()
+//     $("#enableBtn").click(function() {
+//         $("#clearBtn").removeAttr("disabled");
+//     }); // click()
+// }); // ready()

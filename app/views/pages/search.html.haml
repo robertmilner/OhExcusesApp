@@ -1,8 +1,8 @@
 - provide(:title, 'Search')
 
-= render 'search_box', form_link: 'search', placeholder: 'Search by words'
+= render 'search_box', form_link: app_search_path, placeholder: 'Search by words'
 
-- if @excuses.count >= 1
+- if @excuses.count > 0
 	%ul
 		- @excuses.each do |excuse|
 			%li= excuse.text

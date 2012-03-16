@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
-  
+
+  before_filter :current_user
+
   def excuse
     # arguments [0] = total number of results
     @excuses = Excuse.random(5)
@@ -26,5 +28,8 @@ class PagesController < ApplicationController
   end
 
   def user
+    @user = @current_user
+    @excuses = @user.excuses
+    @favorites = @user.favorites
   end
 end

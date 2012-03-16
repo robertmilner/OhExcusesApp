@@ -1,8 +1,9 @@
 class Excuse < ActiveRecord::Base
 
   # associations
-  belongs_to :user, :class_name => "User", :foreign_key => "user_id"
-  belongs_to :location, :class_name => "Location", :foreign_key => "location_id"
+  belongs_to :user
+  belongs_to :location
+  has_many :favorites, :as => :favorable
 
   # validations
   validates_presence_of :text
@@ -12,7 +13,7 @@ class Excuse < ActiveRecord::Base
 
 
   # methods
-  # pages_contoller#excuses
+  # pages_contoller#excuse
   def self.random(total)
     self.find(:all, :order => 'random()', :limit => total)
   end
@@ -33,6 +34,7 @@ class Excuse < ActiveRecord::Base
     end
   end
 
+  # pages_contoller#location
   def self.location(search, total)
     if search
       all(  :joins => { :location => { } }, 

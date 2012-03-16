@@ -1,0 +1,16 @@
+= form_for @favorite do |f|
+  -if @favorite.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@favorite.errors.count, "error")} prohibited this favorite from being saved:"
+      %ul
+        - @favorite.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :favorable
+    = f.text_field :favorable
+  .field
+    = f.label :user
+    = f.text_field :user
+  .actions
+    = f.submit 'Save'
