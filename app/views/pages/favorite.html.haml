@@ -4,9 +4,9 @@
 	= render 'layouts/notice', :notice => notice, :type => "info"
 
 %h2 Your favorites
-- if @excuses.count > 0
+- if @favorites.count > 0
 	%ul
-		- @excuses.each do |excuse|
+		- @favorites.each do |excuse|
 			%li= excuse.text
 - else
 	%ul

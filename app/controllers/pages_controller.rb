@@ -24,15 +24,16 @@ class PagesController < ApplicationController
   def favorite
     @user = @current_user
     # the user model favorable method was changes to grab the ids with "id IN (?)", [1, 2, 3, 4]
-    @excuses = @user.favorable(:type => :excuse, :delve => :true)
+    @favorites = @user.favorable(:type => :excuse, :delve => :true)
     # the above favorable method runs the following SQL query
     # Favorite.find(:all, :conditions => ["user_id = ? AND favorable_type = ?", self.id, type])
-    # then, where [114, 122] and the ids of excuses that have been favorited by the user
+    # then, where [114, 122] and the ids of excuses that have been favorited by the use
     # Excuse.find(:all, :conditions => [ "id IN (?)", [114, 122] ])
   end
 
   def user
     @user = @current_user
-    @excuses = @user.favorable(:type => :excuse, :delve => :true)
+    @excuses = @user.excuses
+    @favorites = @user.favorable(:type => :excuse, :delve => :true)
   end
 end

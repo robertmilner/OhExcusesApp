@@ -13,7 +13,7 @@
 - if @favorites.count > 0
 	%ul
 		- @favorites.each do |excuse|
-			%li= excuse
+			%li= excuse.text
 - else
 	%ul
 		%li You don't have any favorite excuses!
