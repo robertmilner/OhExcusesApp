@@ -6,6 +6,7 @@ class Favorite < ActiveRecord::Base
 
   # validations
   validates_presence_of :user_id, :favorable_id, :favorable_type
+  validates_uniqueness_of :user_id, :scope => [:favorable_id, :favorable_type], :message => "was already your favorite!"
 
   # callbacks
   before_save :associate_user

@@ -44,10 +44,7 @@ class ExcusesController < ApplicationController
   # POST /excuses
   # POST /excuses.json
   def create
-    @user = @current_user
     @excuse = Excuse.new(params[:excuse])
-    @excuse.user = @user
-    @excuse.location_id = @user.location_id
 
     respond_to do |format|
       if @excuse.save!
@@ -63,7 +60,9 @@ class ExcusesController < ApplicationController
   # PUT /excuses/1
   # PUT /excuses/1.json
   def update
+    @user = @current_user
     @excuse = Excuse.find(params[:id])
+    favorites = @excuse.favorites.build
 
     respond_to do |format|
       if @excuse.update_attributes(params[:excuse])

@@ -1,5 +1,8 @@
 - provide(:title, 'Location')
 
+- if notice
+	= render 'layouts/notice', :notice => notice, :type => "info"
+
 = render 'search_box', form_link: app_location_path, placeholder: 'Search by locations'
 
 - if @excuses.count > 0

@@ -1,2 +1,13 @@
 - provide(:title, 'Favorite')
-%p Find me in app/views/pages/favorite.html.haml
+
+- if notice
+	= render 'layouts/notice', :notice => notice, :type => "info"
+
+%h2 Your favorites
+- if @excuses.count > 0
+	%ul
+		- @excuses.each do |excuse|
+			%li= excuse.text
+- else
+	%ul
+		%li You don't have any favorite excuses!

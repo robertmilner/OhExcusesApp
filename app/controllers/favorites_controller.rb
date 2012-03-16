@@ -1,4 +1,8 @@
 class FavoritesController < ApplicationController
+
+  # filters
+  before_filter :current_user
+
   # GET /favorites
   # GET /favorites.json
   def index
@@ -40,14 +44,17 @@ class FavoritesController < ApplicationController
   # POST /favorites
   # POST /favorites.json
   def create
-    @favorite = Favorite.new(params[:favorite])
+    @user = @current_user
+    excuse = Excuse.find(params[:excuse])
+    @favorite = excuse.favorites.build
+    @favorite.user_id = @user.id
 
     respond_to do |format|
       if @favorite.save
-        format.html { redirect_to @favorite, notice: 'Favorite was successfully created.' }
+        format.html { redirect_to app_favorite_path, notice: 'Favorite was successfully created.' }
         format.json { render json: @favorite, status: :created, location: @favorite }
       else
-        format.html { render action: "new" }
+        format.html { redirect_to app_favorite_path, notice: 'This excuse was already one of your favorites!' }
         format.json { render json: @favorite.errors, status: :unprocessable_entity }
       end
     end

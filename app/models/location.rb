@@ -11,6 +11,7 @@ class Location < ActiveRecord::Base
   # methods
   def self.search(search, total)
     if search
+      # split the params[:search] query and get length
       search_length = search.split.length
       # completely fuzzy search, no word order necessary 
       find( :all, 

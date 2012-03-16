@@ -1,4 +1,8 @@
 - provide(:title, 'Tag')
+
+- if notice
+	= render 'layouts/notice', :notice => notice, :type => "info"
+
 = render 'search_box', :type => 'tag', :placeholder => 'Search by tags'
 
 %ul
