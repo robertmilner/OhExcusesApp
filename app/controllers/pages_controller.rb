@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  
   def excuse
     # arguments [0] = total number of results
     @excuses = Excuse.random(5)
@@ -6,14 +7,14 @@ class PagesController < ApplicationController
 
   def search
     # arguments [0] = params[:search], [1] = total number of results
-    @excuses = Excuse.search(params[:words], 5)
+    @excuses = Excuse.search(params[:search], 5)
   end
 
   def location
-    if params[:search]
-      @locations = Location.where('name LIKE ?', "%#{params[:search]}%")
-    else
-      @locations = Location.all
+    # arguments [0] = params[:search], [1] = total number of results
+    @locations = Location.search(params[:search], 5)
+    @locations.each do |location|
+      @excuses = location.excuses
     end
   end
 

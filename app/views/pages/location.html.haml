@@ -1,6 +1,11 @@
 - provide(:title, 'Location')
-= render 'search_box', :url_path => 'location_path', :type => 'location', :placeholder => 'Search by locations'
 
-%ul
-- @locations.each do |location|
-	%li= link_to location.name, locations_url
+= render 'search_box', form_link: location_path, placeholder: 'Search by locations'
+
+- if @excuses.present?
+	%ul
+		- @excuses.each do |excuse|
+			%li= excuse.text
+- else
+	%ul
+		%li Can you believe it? There are no excuses from this location... Yet. Why don't you create one?

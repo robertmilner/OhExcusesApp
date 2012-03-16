@@ -9,7 +9,16 @@ class Location < ActiveRecord::Base
   # callbacks
 
   # methods
-  # def self.search(total)
-  #   self.
-  # end
+  def self.search(search, total)
+    if search
+      search_length = search.split.length
+      # completely fuzzy search, no word order necessary 
+      find( :all, 
+            :conditions => [(['name LIKE ?'] * search_length).join(' AND ')] + search.split.map { |name| "%#{name}%" }, 
+            :limit => total, 
+            :order => 'random()' )
+    else
+      find(:all, :limit => total, :order => 'random()')
+    end
+  end
 end

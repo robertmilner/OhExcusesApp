@@ -1,6 +1,6 @@
 - provide(:title, 'Search')
 
-= render 'search_box', url_path: 'search', type: 'words', placeholder: 'Search by words'
+= render 'search_box', form_link: 'search', placeholder: 'Search by words'
 
 - if @excuses.count >= 1
 	%ul
@@ -8,4 +8,4 @@
 			%li= excuse.text
 - else
 	%ul
-		%li There's no excuse for no excuses! There's only an excuse for Oh, Excuses... Why don't you add one?
+		%li There's no excuse for no excuses! There's only an excuse for Oh, Excuses... Why don't you create one?

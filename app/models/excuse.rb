@@ -24,7 +24,10 @@ class Excuse < ActiveRecord::Base
       # find(:all, :conditions => ['text LIKE ?', "%#{search}%"], :limit => total, :order => 'random()')
       
       # completely fuzzy search, no word order necessary 
-      find(:all, :conditions => [(['text LIKE ?'] * search_length).join(' AND ')] + search.split.map { |name| "%#{name}%" }, :limit => total, :order => 'random()')
+      find( :all, 
+            :conditions => [(['text LIKE ?'] * search_length).join(' AND ')] + search.split.map { |name| "%#{name}%" }, 
+            :limit => total, 
+            :order => 'random()' )
     else
       find(:all, :limit => total, :order => 'random()')
     end
