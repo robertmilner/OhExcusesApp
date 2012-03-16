@@ -5,7 +5,10 @@
 		- @excuses.each do |excuse|
 			%li
 				= excuse.text
-				%span= button_to "Favorite", favorite_url(excuse)
+				%span
+					= form_tag favorites_path do
+						= hidden_field_tag :favorite, excuse.id
+						= submit_tag "Favorite"
 - else
 	%ul
 		%li There's no excuse for no excuses! There's only an excuse for Oh, Excuses... Why don't you create one?
