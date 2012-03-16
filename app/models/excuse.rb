@@ -14,7 +14,7 @@ class Excuse < ActiveRecord::Base
   # methods
   # pages_contoller#excuses
   def self.random(total)
-    self.find(:all, order: 'random()', limit: total)
+    self.find(:all, :order => 'random()', :limit => total)
   end
 
   def self.search(search, total)
@@ -27,6 +27,22 @@ class Excuse < ActiveRecord::Base
       find( :all, 
             :conditions => [(['text LIKE ?'] * search_length).join(' AND ')] + search.split.map { |name| "%#{name}%" }, 
             :limit => total, 
+            :order => 'random()' )
+    else
+      find(:all, :limit => total, :order => 'random()')
+    end
+  end
+
+  def self.location(search, total)
+    if search
+      all(  :joins => { :location => { } }, 
+            :conditions => { :locations => { :name => search } },
+            # { :locations => { :name => "%#{search}%" } },
+            # A.find(:all, :conditions => ["b.foo = ?", 25], :joins => {:b =>{}} )
+            
+            # :conditions => { :locations => [(['name LIKE ?'] * search_length).join(' AND ')] + search.split.map { |name| "%#{name}%" },
+            # :conditions => { :locations => { :name => search } },
+            :limit => total,
             :order => 'random()' )
     else
       find(:all, :limit => total, :order => 'random()')

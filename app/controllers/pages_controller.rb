@@ -12,10 +12,11 @@ class PagesController < ApplicationController
 
   def location
     # arguments [0] = params[:search], [1] = total number of results
-    @locations = Location.search(params[:search], 5)
-    @locations.each do |location|
-      @excuses = location.excuses
-    end
+    @excuses = Excuse.location(params[:search], 5)
+    # @locations = Location.search(params[:search], 5)
+    # @locations.each do |location|
+    #   @excuses = location.excuses
+    # end
   end
 
   def tag
