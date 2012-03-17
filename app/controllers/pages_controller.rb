@@ -15,10 +15,12 @@ class PagesController < ApplicationController
 
   def location
     # arguments [0] = params[:search], [1] = total number of results
-    @excuses = Excuse.location(params[:search], 5)
+    @excuses = Excuse.search_location(params[:search], 5)
   end
 
   def tag
+    # @excuses = Excuse.search_tag(params[:search], 5)
+    @excuses = Excuse.limit(5)
   end
 
   def favorite

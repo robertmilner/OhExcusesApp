@@ -4,15 +4,25 @@ class Excuse < ActiveRecord::Base
   belongs_to :user
   belongs_to :location
   has_many :favorites, :as => :favorable
+  has_many :taggings, :dependent => :destroy
+  has_many :tags, :through => :taggings
+  
+  # attributes
+  attr_writer :tag_names
 
   # validations
   validates_presence_of :text
   validates_length_of :text, :within => 3..255
 
   # callbacks
-
+  after_save :assign_tags
 
   # methods
+  
+  def tag_names
+    @tag_names || tags.map(&:name).join(' ')
+  end
+  
   # pages_contoller#excuse
   def self.random(total)
     self.find(:all, :order => 'random()', :limit => total)
@@ -35,7 +45,7 @@ class Excuse < ActiveRecord::Base
   end
 
   # pages_contoller#location
-  def self.location(search, total)
+  def self.search_location(search, total)
     if search
       all(  :joins => { :location => { } }, 
             :conditions => { :locations => { :name => search } },
@@ -48,6 +58,24 @@ class Excuse < ActiveRecord::Base
             :order => 'random()' )
     else
       find(:all, :limit => total, :order => 'random()')
+    end
+  end
+
+  def self.search_tag(search, total)
+    if search
+      all(  :joins => { :tags => {} },
+            :conditions => { :tags => { :name => search } },
+            :limit => total,
+            :order => 'random()' )
+    end
+  end
+
+  # pages_contoller#tag
+  def assign_tags
+    if @tag_names
+      self.tags = @tag_names.split.map do |name|
+        Tag.find_or_create_by_name(name)
+      end
     end
   end
 

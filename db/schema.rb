@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120316034034) do
+ActiveRecord::Schema.define(:version => 20120317163709) do
 
   create_table "excuses", :force => true do |t|
     t.string   "text"
@@ -41,6 +41,19 @@ ActiveRecord::Schema.define(:version => 20120316034034) do
   create_table "searches", :force => true do |t|
     t.string   "query"
     t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "taggings", :force => true do |t|
+    t.integer  "tag_id"
+    t.integer  "excuse_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "tags", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

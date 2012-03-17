@@ -4,7 +4,6 @@
 - if session[:user_id]
 	%ul
 		%li= link_to "Create excuse", new_excuse_path
-		%li= link_to "Logout", logout_path
 - else
 	%ul
 		%li= link_to "Sign up", new_user_path

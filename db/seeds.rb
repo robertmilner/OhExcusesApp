@@ -1,6 +1,15 @@
-User.destroy_all
-Location.destroy_all
+
+puts "Start time: #{Time.now}"
+
+# Destroy all records in the database.
 Excuse.destroy_all
+Favorite.destroy_all
+Location.destroy_all
+Search.destroy_all
+Tag.destroy_all
+Tagging.destroy_all
+User.destroy_all
+
 
 # Create an array of locations that I actually know of.
 # Limit to low amount so we can see location_id being repeated
@@ -17,7 +26,7 @@ user = User.new do |u|
   u.save!
 
   10.times do
-      u.excuses.create text: Faker::Company.bs, location_id: u.location.id
+      u.excuses.create text: Faker::Lorem.sentence(word_count = rand(6..10)), location_id: u.location.id, tag_names: Faker::Lorem.words(num = rand(2..6)).join(' ')
   end
 end
 user.save!
@@ -33,12 +42,19 @@ puts "Robert Milner created."
     u.save!
 
     10.times do
-      u.excuses.create text: Faker::Company.bs, location_id: u.location.id
+      u.excuses.create text: Faker::Lorem.sentence(word_count = rand(6..10)), location_id: u.location.id, tag_names: Faker::Lorem.words(num = rand(2..6)).join(' ')
     end
   end
 end
 user.save!
 
-puts "#{User.count} users created"
-puts "#{Location.count} locations created"
+puts "End time: #{Time.now}"
+
+# What did we create?
 puts "#{Excuse.count} excuses created"
+puts "#{Favorite.count} favorites created"
+puts "#{Location.count} locations created"
+puts "#{Search.count} searches created"
+puts "#{Tag.count} tags created"
+puts "#{Tagging.count} taggings created"
+puts "#{User.count} users created"

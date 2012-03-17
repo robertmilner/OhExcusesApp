@@ -3,8 +3,13 @@
 - if notice
 	= render 'layouts/notice', :notice => notice, :type => "info"
 
-= render 'search_box', :type => 'tag', :placeholder => 'Search by tags'
+= render 'search_box', form_link: app_tag_path, placeholder: 'Search by tags'
 
-%ul
-- @tags do |tag|
-	%li= tag
+- if @excuses.count > 0
+	%ul
+		- @excuses.each do |excuse|
+			%li= excuse.text
+			%li= excuse.tag_names
+- else
+	%ul
+		%li Can you believe it? There are no excuses with this tag... Yet. Why don't you create one?

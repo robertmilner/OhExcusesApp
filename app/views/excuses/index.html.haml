@@ -5,6 +5,7 @@
     %th Text
     %th User
     %th Location
+    %th Tags
     %th
     %th
     %th
@@ -13,7 +14,8 @@
     %tr
       %td= excuse.text
       %td= excuse.user.name
-      %td= excuse.location.name unless excuse.location.nil?
+      %td= excuse.location.name if excuse.location.present?
+      %td= excuse.tag_names
       %td= link_to 'Show', excuse
       %td= link_to 'Edit', edit_excuse_path(excuse)
       %td= link_to 'Destroy', excuse, :confirm => 'Are you sure?', :method => :delete

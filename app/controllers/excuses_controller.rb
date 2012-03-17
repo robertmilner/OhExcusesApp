@@ -64,8 +64,8 @@ class ExcusesController < ApplicationController
   def update
     @user = @current_user
     @excuse = Excuse.find(params[:id])
-    @excuse.location = @user.location
-    favorites = @excuse.favorites.build
+    # @excuse.location = @user.location
+    # favorites = @excuse.favorites.build
 
     respond_to do |format|
       if @excuse.update_attributes(params[:excuse])
