@@ -1,0 +1,18 @@
+= form_tag login_url do
+
+	- if notice
+		= render 'layouts/notice', :notice => notice, :type => "info"
+
+	%ul
+		%li= label_tag :email
+		%li= text_field_tag :email
+
+		%li= label_tag :password
+		%li
+			= password_field_tag :password
+			%span 
+				= link_to "Forgot?", '#'
+		%li
+			= submit_tag "Sign In"
+	
+	%p Create an account?

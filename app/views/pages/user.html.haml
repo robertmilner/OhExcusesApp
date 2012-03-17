@@ -1,5 +1,21 @@
 - provide(:title, 'User')
 
+%h2 Your stats
+%ul
+	%li
+		= @user.excuses.count
+		%span Excuses
+	%li
+		= @user.favorites.count
+		%span Favorites
+
+%h2 Your info
+%ul
+	%li= @user.name
+	%li= @user.email
+	%li= @user.location.name
+	%li= link_to "Edit your info", edit_user_path(@user)
+
 %h2 Your excuses
 - if @excuses.count > 0
 	%ul

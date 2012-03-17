@@ -21,7 +21,9 @@ class User < ActiveRecord::Base
     type = type.to_s.capitalize
 
     # add favorable_id to condition if id is provided
-    con = ["user_id = ? AND favorable_type = ?", self.id, type]
+    # con = ["user_id = ? AND favorable_type = ?", self.id, type]
+    con = { :user_id => self.id, :favorable_type => type }
+    
 
     # append favorable id to the query if an :id is passed as an option into the
     # function, and then append that id as a string to the "con" Array
@@ -45,7 +47,9 @@ class User < ActiveRecord::Base
         type_class = type.constantize
 
         # build a query that only selects the excuses by ids related to user
-        return type_class.find(:all, :conditions => ["id IN (?)", fav_ids ])
+        # return type_class.find(:all, :conditions => ["id IN (?)", fav_ids ])
+        # return type_class.find(:all, :conditions => { :id => fav_ids })
+        return type_class.find_all_by_id(fav_ids)
       else
         return []
       end
