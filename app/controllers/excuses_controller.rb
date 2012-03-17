@@ -49,7 +49,7 @@ class ExcusesController < ApplicationController
     @excuse.location = @user.location
 
     respond_to do |format|
-      if @excuse.save!
+      if @excuse.save
         format.html { redirect_to @excuse, notice: 'Excuse was successfully created.' }
         format.json { render json: @excuse, status: :created, location: @excuse }
       else
