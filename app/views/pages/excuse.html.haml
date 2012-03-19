@@ -8,10 +8,11 @@
 		- @excuses.each do |excuse|
 			%li
 				= excuse.text
-				%span
-					= form_tag favorites_path do
-						= hidden_field_tag :excuse, excuse.id
-						= submit_tag "Favorite", :name => nil
+				- if @current_user.present?
+					%span
+						= form_tag favorites_path do
+							= hidden_field_tag :excuse, excuse.id
+							= submit_tag "Favorite", :name => nil
 - else
 	%ul
 		%li There's no excuse for no excuses! There's only an excuse for Oh, Excuses... Why don't you create one?
