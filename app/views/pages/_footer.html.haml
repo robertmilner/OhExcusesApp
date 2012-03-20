@@ -1,10 +1,23 @@
 %footer
-	%ul
-		%li= link_to "Excuse",		app_excuse_url
-		%li= link_to "Search",		app_search_url
-		%li= link_to "Location",	app_location_url
-		%li= link_to "Tag",			app_tag_url
-		%li= link_to "Favorite",	app_favorite_url
-		%li= link_to "User",		app_user_url
 
-%p= session[:user_id] if session[:user_id]
+	%ul
+		%li
+			%a{:href => app_excuse_url, :class => "icon"}
+				%span H
+				Home
+		%li
+			%a{:href => app_search_url, :class => "icon"}
+				%span S
+				Search
+		%li
+			%a{:href => app_location_url, :class => "icon"}
+				%span L
+				Location	
+		%li
+			%a{:href => app_tag_url, :class => "icon"}
+				%span T
+				Tag
+		%li
+			%a{:href => app_user_url, :class => "icon"}
+				%span A
+				Account

@@ -1,10 +1,10 @@
 %header
 	%h1= link_to yield(:title), root_url
 
-- if session[:user_id]
-	%ul
-		%li= link_to "Create excuse", new_excuse_path
-- else
-	%ul
-		%li= link_to "Sign up", new_user_path
-		%li= link_to "Login", login_path
+	- if session[:user_id]
+		%ul
+			%li= link_to "N", new_excuse_path, :class => "btn btn-create icon"
+	- else
+		%ul
+			%li= link_to "Sign Up", new_user_path
+			%li= link_to "Login", login_path

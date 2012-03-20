@@ -14,14 +14,29 @@
 //= require jquery_ujs
 //= require_tree .
 
-// // need to get button working first
-// // enable and disable button
-// // favorite_btn
+// need to get button working first
+// enable and disable button
+// favorite_btn
 // $(document).ready(function($) {
-//     $("#disableBtn").click(function() {
-//         $("#clearBtn").attr("disabled", "disabled");
-//     }); // click()
-//     $("#enableBtn").click(function() {
-//         $("#clearBtn").removeAttr("disabled");
-//     }); // click()
+// 
+//     // $("#disableBtn").click(function() {
+//     //     $("#clearBtn").attr("disabled", "disabled");
+//     // }); // click()
+//     // $("#enableBtn").click(function() {
+//     //     $("#clearBtn").removeAttr("disabled");
+//     // }); // click()
+// 
+// 	// VERTICALLY ALIGN FUNCTION
+// 	// $.fn.vertAlign = function() {
+// 	// 	return this.each(function(i){
+// 	// 	var ah = $(this).height();
+// 	// 	var ph = $(this).parent().height();
+// 	// 	var mh = Math.ceil((ph-ah) / 2);
+// 	// 	$(this).css('margin-top', mh);
+// 	// 	});
+// 	// };
+// 	
+// 	// $('.label').vertAlign();
+// 
 // }); // ready()
+// 

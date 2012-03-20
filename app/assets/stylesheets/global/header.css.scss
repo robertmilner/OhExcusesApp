@@ -1,0 +1,56 @@
+/*
+ *
+ * * * * * * * * * * * * * * * * * * *
+ * START OF HEADER
+ * * * * * * * * * * * * * * * * * * *
+ *
+ * # assets/stylesheets/header.css.scss
+ * # views/layouts/_header.html.haml
+ * <header>
+ *
+ */
+
+/* imports */
+@import 'variables';
+@import 'mixins';
+
+/* page */
+header {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	border-bottom: 2px solid $red_shade;
+
+	@include box_shadow_inset(0px, 0px, 0px, 0px, rgba(0, 0, 0, 0.1));
+	background-color: $red;
+	
+	a, a:link, a:hover, a:visited {
+		color: #fff;
+	}
+	h1 {
+		font: bold 24px/32px "Helvetica Neue", Helvetica, Arial, sans-serif;
+		text-align: center;
+		padding: 10px 0;
+		letter-spacing: -3px;
+		@include text_shadow(0, 3px, 0, $red_shade);
+	}
+	ul {
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin: 14px 0;
+		li {
+			@include font_face;
+			font-size: 22px;
+			float: left;
+		}
+	}
+}
+
+.btn-create {
+	width: 64px;
+	height: 64px;
+	overflow: hidden;
+	background-color: $red_shade;
+}

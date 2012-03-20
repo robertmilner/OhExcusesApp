@@ -1,0 +1,41 @@
+/* mixins */
+
+@mixin font_face {
+	font-family: "IcoMoonRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+@mixin text_shadow($hor, $vert, $blur, $color) {
+	-moz-text-shadow: $hor $vert $blur $color;
+	-webkit-text-shadow: $hor $vert $blur $color;
+	-o-text-shadow: $hor $vert $blur $color;
+	-ms-text-shadow: $hor $vert $blur $color;
+	text-shadow: $hor $vert $blur $color;
+	filter: dropshadow(color=$color, offx=$hor, offy=$vert);
+}
+
+@mixin border_radius($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	border-radius: $radius;
+}
+
+@mixin gradient($top: rgba(100, 100, 100, 0.01), $bottom: rgba(100, 100, 100, 0.01)) {
+	background: -moz-linear-gradient(top, $top 0%, $bottom 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$top), color-stop(100%,$bottom));
+	background: -webkit-linear-gradient(top, $top 0%, $bottom 100%);
+	background: -o-linear-gradient(top, $top 0%, $bottom 100%);
+	background: -ms-linear-gradient(top, $top 0%, $bottom 100%);
+	background: linear-gradient(top, $top 0%, $bottom 100%);
+}
+
+@mixin box_shadow($hoz, $vert, $blur, $spread, $color) {
+	-webkit-box-shadow: $hoz $vert $blur $spread $color;
+	-moz-box-shadow: $hoz $vert $blur $spread $color;
+	box-shadow: $hoz $vert $blur $spread $color;
+}
+
+@mixin box_shadow_inset($hoz, $vert, $blur, $spread, $color) {
+	-webkit-box-shadow: inset $hoz $vert $blur $spread $color;
+	-moz-box-shadow: inset $hoz $vert $blur $spread $color;
+	box-shadow: inset $hoz $vert $blur $spread $color;
+}

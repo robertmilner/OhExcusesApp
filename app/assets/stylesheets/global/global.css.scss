@@ -1,0 +1,35 @@
+/*
+ *
+ * * * * * * * * * * * * * * * * * * *
+ * START OF GLOBAL
+ * * * * * * * * * * * * * * * * * * *
+ *
+ * # assets/stylesheets/global/global.css.scss
+ * # views/layouts/pages.html.haml
+ * <body>
+ *
+ */
+
+/* imports */
+@import 'variables';
+@import 'mixins';
+
+html, body {
+	font: 16px/24px "Helvetica Neue", Helvetica, Arial, sans-serif;
+	height: 100%
+}
+
+body {
+	background: url('../furley_bg.png');;
+}
+a {
+	color: $black;
+	text-decoration: none;
+}
+.btn {
+	margin: 15px;
+	padding: 10px;
+	@include border_radius(10px);
+	@include box_shadow_inset(0px, 0px, 0px, 0px, rgba(0, 0, 0, 0.1));
+/*	@include gradient;*/
+}

@@ -1,18 +1,27 @@
-- provide(:title, 'Excuses')
+- provide(:title, 'Oh, Excuses')
 
 - if notice
 	= render 'layouts/notice', :notice => notice, :type => "info"
 
-- if @excuses.count > 0
-	%ul
-		- @excuses.each do |excuse|
-			%li
-				= excuse.text
-				- if @current_user.present?
-					%span
-						= form_tag favorites_path do
-							= hidden_field_tag :excuse, excuse.id
-							= submit_tag "Favorite", :name => nil
-- else
-	%ul
-		%li There's no excuse for no excuses! There's only an excuse for Oh, Excuses... Why don't you create one?
+%section
+	.slider
+		.prev
+			.label
+				%span prev
+		.content
+			- if @excuses.count > 0
+				%ul
+					- @excuses.each do |excuse|
+						%li
+							= excuse.text
+							- if @current_user.present?
+								%span
+									= form_tag favorites_path do
+										= hidden_field_tag :excuse, excuse.id
+										= submit_tag "Favorite", :name => nil
+			- else
+				%ul
+					%li There's no excuse for no excuses! There's only an excuse for Oh, Excuses... Why don't you create one?
+		.next
+			.label
+				%span next
