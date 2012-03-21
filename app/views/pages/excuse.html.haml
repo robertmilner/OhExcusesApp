@@ -4,24 +4,49 @@
 	= render 'layouts/notice', :notice => notice, :type => "info"
 
 %section
-	.slider
-		.prev
-			.label
-				%span prev
-		.content
+	#carousel-excuses.carousel.slide
+
+		.previous-button
+			.previous-icon
+
+		.carousel-inner
 			- if @excuses.count > 0
-				%ul
-					- @excuses.each do |excuse|
-						%li
-							= excuse.text
+				- @excuses.each_with_index do |excuse, index|
+					- if index == 0
+						.item.active
+							.text
+								%h2
+									= excuse.text
 							- if @current_user.present?
-								%span
+								.details.favorites
+									%h3 Favorites
 									= form_tag favorites_path do
 										= hidden_field_tag :excuse, excuse.id
 										= submit_tag "Favorite", :name => nil
+							.details.tags
+								%h3 Tags
+								%ul
+									- excuse.tags.each do |tag|
+										%li.tag{ :class => "tag-blue" }= link_to tag.name, "tag/#{tag.name}", :rel => "tag"
+
+					- else
+						.item
+							.text
+								%h2
+									= excuse.text
+							- if @current_user.present?
+								.details.favorites
+									%h3 Favorites
+									= form_tag favorites_path do
+										= hidden_field_tag :excuse, excuse.id
+										= submit_tag "Favorite", :name => nil
+							.details.tags
+								%h3 Tags
+								%ul
+									- excuse.tags.each do |tag|
+										%li.tag{ :class => "tag-blue" }= link_to tag.name, "tag/#{tag.name}", :rel => "tag"
 			- else
-				%ul
-					%li There's no excuse for no excuses! There's only an excuse for Oh, Excuses... Why don't you create one?
-		.next
-			.label
-				%span next
+				.item.active There's no excuse for no excuses! There's only an excuse for Oh, Excuses... Why don't you create one?
+
+		.forward-button
+			.forward-icon

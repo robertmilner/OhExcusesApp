@@ -21,6 +21,7 @@ header {
 	right: 0;
 	left: 0;
 	border-bottom: 2px solid $red_shade;
+	z-index: 1000;
 
 	@include box_shadow_inset(0px, 0px, 0px, 0px, rgba(0, 0, 0, 0.1));
 	background-color: $red;

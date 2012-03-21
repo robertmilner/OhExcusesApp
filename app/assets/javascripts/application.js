@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap-transition
 //= require bootstrap-carousel
 //= require_tree .
 
@@ -20,12 +21,13 @@
 // favorite_btn
 $(document).ready(function($) {
 
-
-
-
-
-
-
+	$('.carousel').carousel()
+	$('.previous-button').click(function() {
+		$('.carousel').carousel('prev');
+	});
+	$('.forward-button').click(function() {
+		$('.carousel').carousel('next');
+	});
 
 //     // $("#disableBtn").click(function() {
 //     //     $("#clearBtn").attr("disabled", "disabled");
@@ -47,4 +49,3 @@ $(document).ready(function($) {
 // 	// $('.label').vertAlign();
 
 }); // ready()
-

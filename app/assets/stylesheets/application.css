@@ -12,6 +12,7 @@
  *= require global/fontface
  *= require global/global
  *= require global/header
+ *= require carousel
  *= require global/section
  *= require global/nav
  *= require global/footer
