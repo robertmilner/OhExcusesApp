@@ -2,22 +2,21 @@
 
 	%ul
 		%li
-			%a{:href => app_excuse_url, :class => "icon"}
-				%span H
-				Home
+			= link_to "H", app_excuse_url, :class => "icon"
+			%span.nav_label Home
+
 		%li
-			%a{:href => app_search_url, :class => "icon"}
-				%span S
-				Search
+			= link_to "S", app_search_url, :class => "icon"
+			%span.nav_label Search
+
 		%li
-			%a{:href => app_location_url, :class => "icon"}
-				%span L
-				Location	
+			= link_to "L", app_location_url, :class => "icon"
+			%span.nav_label Location
+
 		%li
-			%a{:href => app_tag_url, :class => "icon"}
-				%span T
-				Tag
+			= link_to "T", app_tag_url, :class => "icon"
+			%span.nav_label Tag
+
 		%li
-			%a{:href => app_user_url, :class => "icon"}
-				%span A
-				Account
+			= link_to "A", app_user_url, :class => "icon"
+			%span.nav_label Account

@@ -12,13 +12,21 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap-carousel
 //= require_tree .
 
 // need to get button working first
 // enable and disable button
 // favorite_btn
-// $(document).ready(function($) {
-// 
+$(document).ready(function($) {
+
+
+
+
+
+
+
+
 //     // $("#disableBtn").click(function() {
 //     //     $("#clearBtn").attr("disabled", "disabled");
 //     // }); // click()
@@ -37,6 +45,6 @@
 // 	// };
 // 	
 // 	// $('.label').vertAlign();
-// 
-// }); // ready()
-// 
+
+}); // ready()
+

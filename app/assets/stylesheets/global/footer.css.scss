@@ -9,13 +9,10 @@ footer {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	z-index: 100px;
+	z-index: 100;
 	font-size: 12px;
 	background: #000;
 	border-top: 2px solid $black;
-	a {
-		color: #fff;
-	}
 	ul {
 		min-width: 320px;
 		max-width: 620px;
@@ -28,13 +25,17 @@ footer {
 			float: left;
 			text-align: center;
 			background-color: #222;
-			span {
+			a {
+				color: #fff;
 				font-size: 36px;
 				line-height: 48px;
 				display: block;
 				text-align: center;
 				@include font_face;
 				@include text_shadow(0, 3px, 0, $black);
+			}
+			span.nav_label {
+				// display: none;
 			}
 		}
 	}
