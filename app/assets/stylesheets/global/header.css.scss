@@ -28,7 +28,7 @@ header {
 	h1 {
 		font: bold 24px/32px "Helvetica Neue", Helvetica, Arial, sans-serif;
 		text-align: center;
-		padding: 5px 0;
+		padding: 6px 0;
 		letter-spacing: -2px;
 		@include text_shadow(0, 3px, 0, $red_shade);
 	}
@@ -36,19 +36,33 @@ header {
 		position: absolute;
 		top: 0;
 		right: 0;
-		margin: 0;
+		margin: 5px 2%;
 		li {
 			float: left;
-			a {
-				img {
-					height: auto;
-					width: 40%;
+			a.btn {
+				font-size: 13px;
+				height: 26px;
+				display: block;
+				margin-left: 10px;
+				padding: 4px 8px;
+				background-color: $red_shade;
+				@include border_radius(10px);
+				&:hover {
+					@include box_shadow_inset(0, 0, 2px, 1px, rgba(0, 0, 0, 0.2));
 				}
+			}
+			a.btn-write {
+				height: 26px;
+				width: 26px;
+				display: block;
+				padding: 4px;
+				background-color: $red_shade;
+				@include border_radius(10px);
+				background-image: url('../write.svg');
+				background-size: 26px;
+				background-repeat: no-repeat;
+				background-position: center center;
 			}
 		}
 	}
-}
-
-.btn-create {
-	background-color: $red_shade;
 }

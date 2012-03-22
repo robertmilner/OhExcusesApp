@@ -10,16 +10,16 @@
 							%h3 Favorite
 							= form_tag favorites_path do
 								= hidden_field_tag :excuse, excuse.id
-								%input{ :type => "image", :src => "/assets/heart_black.svg", :alt => "Yeah favorite!", :class => "btn-favorite #{favorited(excuse, @current_user)}" }
+								= favorited_image_tag(excuse, @current_user)
 					.location
 						%h3 Location
 						%ul
-							%li= link_to excuse.location.name, "search/#{excuse.location.name.parameterize}"
+							%li= link_to excuse.location.name, "/location/#{excuse.location.name.parameterize}"
 					.tags
 						%h3 Tags
 						%ul
 							- excuse.tags.each do |tag|
-								%li.tag= link_to tag.name, "tag/#{tag.name}", :rel => "tag"
+								%li.tag= link_to tag.name, "/tag/#{tag.name}", :rel => "tag"
 
 		- else
 			.item
@@ -31,16 +31,16 @@
 							%h3 Favorite
 							= form_tag favorites_path do
 								= hidden_field_tag :excuse, excuse.id
-								%input{ :type => "image", :src => "/assets/heart_black.svg", :alt => "Yeah favorite!", :class => "btn-favorite" }
+								= favorited_image_tag(excuse, @current_user)
 					.location
 						%h3 Location
 						%ul
-							%li= link_to excuse.location.name, "search/#{excuse.location.name.parameterize}"
+							%li= link_to excuse.location.name, "/location/#{excuse.location.name.parameterize}"
 					.tags
 						%h3 Tags
 						%ul
 							- excuse.tags.each do |tag|
-								%li.tag= link_to tag.name, "tag/#{tag.name}", :rel => "tag"
+								%li.tag= link_to tag.name, "/tag/#{tag.name}", :rel => "tag"
 
 - else
 	.item.active There's no excuse for no excuses! There's only an excuse for Oh, Excuses... Why don't you create one?

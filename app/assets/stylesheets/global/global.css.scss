@@ -26,10 +26,3 @@ a {
 	color: $black;
 	text-decoration: none;
 }
-.btn {
-	margin: 15px;
-	padding: 10px;
-	@include border_radius(10px);
-	@include box_shadow_inset(0px, 0px, 0px, 0px, rgba(0, 0, 0, 0.1));
-/*	@include gradient;*/
-}
