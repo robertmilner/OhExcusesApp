@@ -82,6 +82,14 @@ section {
 	}
 	.favorite {
 		border-left: 0;
+		input.btn-favorite {
+			width: 40px;
+			height: auto;
+			opacity: 0.2;
+		}
+		input.btn-favorite.active {
+			opacity: 1;
+		}
 	}
 	.location {
 		li {
