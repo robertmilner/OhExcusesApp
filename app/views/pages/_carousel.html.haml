@@ -1,0 +1,46 @@
+- if @excuses.count > 0
+	- @excuses.each_with_index do |excuse, index|
+		- if index == 0
+			.item.active
+				%h2
+					= excuse.text
+				.details
+					- if @current_user.present?
+						.favorite
+							%h3 Favorite
+							= form_tag favorites_path do
+								= hidden_field_tag :excuse, excuse.id
+								= submit_tag "Favorite", :name => nil
+					.location
+						%h3 Location
+						%ul
+							%li= link_to excuse.location.name, "search/#{excuse.location.name.parameterize}"
+					.tags
+						%h3 Tags
+						%ul
+							- excuse.tags.each do |tag|
+								%li.tag= link_to tag.name, "tag/#{tag.name}", :rel => "tag"
+
+		- else
+			.item
+				%h2
+					= excuse.text
+				.details
+					- if @current_user.present?
+						.favorite
+							%h3 Favorite
+							= form_tag favorites_path do
+								= hidden_field_tag :excuse, excuse.id
+								= submit_tag "Favorite", :name => nil
+					.location
+						%h3 Location
+						%ul
+							%li= link_to excuse.location.name, "search/#{excuse.location.name.parameterize}"
+					.tags
+						%h3 Tags
+						%ul
+							- excuse.tags.each do |tag|
+								%li.tag= link_to tag.name, "tag/#{tag.name}", :rel => "tag"
+
+- else
+	.item.active There's no excuse for no excuses! There's only an excuse for Oh, Excuses... Why don't you create one?

@@ -2,21 +2,21 @@
 
 	%ul
 		%li
-			= link_to "H", app_excuse_url, :class => "icon"
+			= link_to (image_tag "/assets/home.svg"), app_excuse_url, :class => "icon", :rel => "tooltip", :title => "Home"
 			%span.nav_label Home
 
 		%li
-			= link_to "S", app_search_url, :class => "icon"
+			= link_to (image_tag "/assets/search.svg"), app_search_url, :class => "icon", :rel => "tooltip", :title => "Search by words"
 			%span.nav_label Search
 
 		%li
-			= link_to "L", app_location_url, :class => "icon"
+			= link_to (image_tag "/assets/location.svg"), app_location_url, :class => "icon", :rel => "tooltip", :title => "Search by location"
 			%span.nav_label Location
 
 		%li
-			= link_to "T", app_tag_url, :class => "icon"
+			= link_to (image_tag "/assets/tag.svg"), app_tag_url, :class => "icon", :rel => "tooltip", :title => "Search by tags"
 			%span.nav_label Tag
 
 		%li
-			= link_to "A", app_user_url, :class => "icon"
+			= link_to (image_tag "/assets/account.svg"), app_user_url, :class => "icon", :rel => "tooltip", :title => "View your account"
 			%span.nav_label Account

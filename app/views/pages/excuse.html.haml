@@ -6,47 +6,11 @@
 %section
 	#carousel-excuses.carousel.slide
 
-		.previous-button
-			.previous-icon
+		.carousel-previous-button
+			.carousel-previous-icon
 
 		.carousel-inner
-			- if @excuses.count > 0
-				- @excuses.each_with_index do |excuse, index|
-					- if index == 0
-						.item.active
-							.text
-								%h2
-									= excuse.text
-							- if @current_user.present?
-								.details.favorites
-									%h3 Favorites
-									= form_tag favorites_path do
-										= hidden_field_tag :excuse, excuse.id
-										= submit_tag "Favorite", :name => nil
-							.details.tags
-								%h3 Tags
-								%ul
-									- excuse.tags.each do |tag|
-										%li.tag{ :class => "tag-blue" }= link_to tag.name, "tag/#{tag.name}", :rel => "tag"
+			= render 'carousel', :excuses => @excuses
 
-					- else
-						.item
-							.text
-								%h2
-									= excuse.text
-							- if @current_user.present?
-								.details.favorites
-									%h3 Favorites
-									= form_tag favorites_path do
-										= hidden_field_tag :excuse, excuse.id
-										= submit_tag "Favorite", :name => nil
-							.details.tags
-								%h3 Tags
-								%ul
-									- excuse.tags.each do |tag|
-										%li.tag{ :class => "tag-blue" }= link_to tag.name, "tag/#{tag.name}", :rel => "tag"
-			- else
-				.item.active There's no excuse for no excuses! There's only an excuse for Oh, Excuses... Why don't you create one?
-
-		.forward-button
-			.forward-icon
+		.carousel-forward-button
+			.carousel-forward-icon

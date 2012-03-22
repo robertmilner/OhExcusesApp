@@ -11,6 +11,7 @@
  *= require global/reset
  *= require global/fontface
  *= require global/global
+ *= require global/forms
  *= require global/header
  *= require carousel
  *= require global/section

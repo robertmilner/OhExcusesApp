@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-transition
+//= require bootstrap-tooltip
 //= require bootstrap-carousel
 //= require_tree .
 
@@ -21,11 +22,13 @@
 // favorite_btn
 $(document).ready(function($) {
 
-	$('.carousel').carousel()
-	$('.previous-button').click(function() {
+	$('.carousel').carousel({
+		interval: 10000
+	});
+	$('.carousel-previous-button').click(function() {
 		$('.carousel').carousel('prev');
 	});
-	$('.forward-button').click(function() {
+	$('.carousel-forward-button').click(function() {
 		$('.carousel').carousel('next');
 	});
 

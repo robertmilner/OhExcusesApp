@@ -1,13 +1,8 @@
 @import 'variables';
 @import 'mixins';
 
-/* variables */
-
 
 footer {
-	
-	display: none;
-	
 	position: fixed;
 	right: 0;
 	bottom: 0;
@@ -30,15 +25,18 @@ footer {
 			background-color: #222;
 			a {
 				color: #fff;
-				font-size: 36px;
-				line-height: 48px;
 				display: block;
 				text-align: center;
 				@include font_face;
 				@include text_shadow(0, 3px, 0, $black);
+				img {
+					width: 40%;
+					height: auto;
+					padding: 5px;
+				}
 			}
 			span.nav_label {
-				// display: none;
+				display: none;
 			}
 		}
 	}

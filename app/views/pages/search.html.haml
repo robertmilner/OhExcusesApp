@@ -3,12 +3,15 @@
 - if notice
 	= render 'layouts/notice', :notice => notice, :type => "info"
 
-= render 'search_box', form_link: app_search_path, placeholder: 'Search by words'
+%section
+	#carousel-excuses.carousel.slide
 
-- if @excuses.count > 0
-	%ul
-		- @excuses.each do |excuse|
-			%li= excuse.text
-- else
-	%ul
-		%li There's no excuse for no excuses! There's only an excuse for Oh, Excuses... Why don't you create one?
+		.carousel-previous-button
+			.carousel-previous-icon
+
+		.carousel-inner
+			= render 'search_box', form_link: app_search_path, placeholder: 'Search by words'
+			= render 'carousel', :excuses => @excuses
+
+		.carousel-forward-button
+			.carousel-forward-icon
