@@ -52,10 +52,10 @@ header {
 				}
 			}
 			a.btn-write {
-				height: 26px;
-				width: 26px;
+				height: 24px;
+				width: 24px;
 				display: block;
-				padding: 4px;
+				padding: 6px;
 				background-color: $red_shade;
 				@include border_radius(10px);
 				background-image: url('../write.svg');

@@ -1,35 +1,44 @@
 - provide(:title, 'Account')
 
-%h2 Your stats
-%ul
-	%li
-		= @user.excuses.count
-		%span Excuses
-	%li
-		= @user.favorites.count
-		%span Favorites
+- if notice
+	= render 'layouts/notice', :notice => notice, :type => "info"
 
-%h2 Your info
-%ul
-	%li= @user.name
-	%li= @user.email
-	%li= @user.location.name
-	%li= link_to "Edit your info", edit_user_path(@user)
+%section#account
 
-%h2 Your excuses
-- if @excuses.count > 0
-	%ul
-		- @excuses.each do |excuse|
-			%li= excuse.text
-- else
-	%ul
-		%li You haven't created any excuses yet! What's your excuse?
+	%h2 Your stats
 
-%h2 Your favorites
-- if @favorites.count > 0
 	%ul
-		- @favorites.each do |excuse|
-			%li= excuse.text
-- else
+		%li
+			= @user.excuses.count
+			%span Excuses
+		%li
+			= @user.favorites.count
+			%span Favorites
+
+	%h2 Your info
+
 	%ul
-		%li You don't have any favorite excuses!
+		%li= @user.name
+		%li= @user.email
+		%li= @user.location.name
+		%li= link_to "Edit your info", edit_user_path(@user)
+
+	%h2 Your excuses
+
+	- if @excuses.count > 0
+		%ul
+			- @excuses.each do |excuse|
+				%li= excuse.text
+	- else
+		%ul
+			%li You haven't created any excuses yet! What's your excuse?
+
+	%h2 Your favorites
+
+	- if @favorites.count > 0
+		%ul
+			- @favorites.each do |excuse|
+				%li= excuse.text
+	- else
+		%ul
+			%li You don't have any favorite excuses!

@@ -5,21 +5,25 @@ class PagesController < ApplicationController
   before_filter :current_user
 
   def excuse
+    @user = @current_user
     # arguments [0] = total number of results
     @excuses = Excuse.random(5)
   end
 
   def search
+    @user = @current_user
     # arguments [0] = params[:search], [1] = total number of results
     @excuses = Excuse.search(params[:search], 5)
   end
 
   def location
+    @user = @current_user
     # arguments [0] = params[:search], [1] = total number of results
     @excuses = Excuse.search_location(params[:search], 5)
   end
 
   def tag
+    @user = @current_user
     # @excuses = Excuse.search_tag(params[:search], 5)
     @excuses = Excuse.limit(5)
   end
