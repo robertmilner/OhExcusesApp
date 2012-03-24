@@ -1,46 +1,58 @@
-- if @excuses.count > 0
-	- @excuses.each_with_index do |excuse, index|
-		- if index == 0
-			.item.active
-				%h2
-					= excuse.text
-				.details
-					- if @current_user.present?
-						.favorite
-							%h3 Favorite
-							= form_tag favorites_path do
-								= hidden_field_tag :excuse, excuse.id
-								= favorited_image_tag(excuse, @current_user)
-					.location
-						%h3 Location
-						%ul
-							%li= link_to excuse.location.name, "/location/#{excuse.location.name.parameterize}"
-					.tags
-						%h3 Tags
-						%ul
-							- excuse.tags.each do |tag|
-								%li.tag= link_to tag.name, "/tag/#{tag.name}", :rel => "tag"
+#carousel-excuses.carousel.slide
+
+	.carousel-previous-button
+		.carousel-previous-icon
+
+	.carousel-inner
+
+		- if @excuses.count > 0
+			- @excuses.each_with_index do |excuse, index|
+				- if index == 0
+					.item.active
+						%h2
+							= excuse.text
+						.details
+							- if @current_user.present?
+								.favorite
+									%h3 Favorite
+									= form_tag favorites_path, :remote => true do
+										= hidden_field_tag :excuse, excuse.id
+										= favorited_image_tag(excuse, @current_user)
+							.location
+								%h3 Location
+								%ul
+									%li= link_to excuse.location.name, "/location/#{excuse.location.name.parameterize}"
+							.tags
+								%h3 Tags
+								%ul
+									- excuse.tags.each do |tag|
+										%li.tag= link_to tag.name, "/tag/#{tag.name}", :rel => "tag"
+
+				- else
+					.item
+						%h2
+							= excuse.text
+						.details
+							- if @current_user.present?
+								.favorite
+									%h3 Favorite
+									= form_tag favorites_path, :remote => true do
+										= hidden_field_tag :excuse, excuse.id
+										= favorited_image_tag(excuse, @current_user)
+							.location
+								%h3 Location
+								%ul
+									%li= link_to excuse.location.name, "/location/#{excuse.location.name.parameterize}"
+							.tags
+								%h3 Tags
+								%ul
+									- excuse.tags.each do |tag|
+										%li.tag= link_to tag.name, "/tag/#{tag.name}", :rel => "tag"
 
 		- else
-			.item
-				%h2
-					= excuse.text
-				.details
-					- if @current_user.present?
-						.favorite
-							%h3 Favorite
-							= form_tag favorites_path do
-								= hidden_field_tag :excuse, excuse.id
-								= favorited_image_tag(excuse, @current_user)
-					.location
-						%h3 Location
-						%ul
-							%li= link_to excuse.location.name, "/location/#{excuse.location.name.parameterize}"
-					.tags
-						%h3 Tags
-						%ul
-							- excuse.tags.each do |tag|
-								%li.tag= link_to tag.name, "/tag/#{tag.name}", :rel => "tag"
+			.item.active There's no excuse for no excuses! There's only an excuse for Oh, Excuses... Why don't you create one?
 
-- else
-	.item.active There's no excuse for no excuses! There's only an excuse for Oh, Excuses... Why don't you create one?
+	.clearfix
+
+	.carousel-forward-button
+		.carousel-forward-icon

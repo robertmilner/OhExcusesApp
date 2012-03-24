@@ -20,7 +20,7 @@ $(document).ready(function($) {
 
 	// Pages - Carousel Partial
 	$('.carousel').carousel({
-		interval: 10000
+		interval: 100000
 	});
 	$('.carousel-previous-button').click(function() {
 		$('.carousel').carousel('prev');
@@ -30,5 +30,37 @@ $(document).ready(function($) {
 	});
 	// end
 
+	// Pages - Carousel Keyboard Navigation
+	// Left and Right Keys on keyup() maybe switch to keypress() or keydown()
+	$(document.documentElement).keyup(function (event) {
+		if (event.keyCode == 37) {
+			$('.carousel').carousel('prev');
+		} else if (event.keyCode == 39) {
+			$('.carousel').carousel('next');
+		}
+	});
+
+	
+	$(document.documentElement).keydown(function (event) {
+		if (event.keyCode == 32) {
+			$('.carousel').carousel('next');
+			event.preventDefault();
+		}
+	});
+
+	// Pages - Favorite Buttom
+	$('.btn-favorite').click(function(e) {
+		$('.favorite form').submit();
+		e.preventDefault();
+	});
+	// end
+
+	// This is a cool height fix but fixed positioning with top side and bottom = 0 works better.
+	// // Pages - Carousel Buttons
+	// $(window).resize(function() {
+	// 	var pageheight = $(window).height();
+	// 	$('.carousel-previous-button, .carousel-forward-button').height(pageheight);
+	// });
+	// // end
 
 });

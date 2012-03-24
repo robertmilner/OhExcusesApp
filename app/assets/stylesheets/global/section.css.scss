@@ -27,6 +27,10 @@ section {
 			}
 		}
 		.carousel-previous-button {
+			position: fixed;
+			top: 0;
+			left: 0;
+			bottom: 0;
 			background-image: url('/assets/arrow_left_black.png');
 			background-image: none, url('/assets/arrow_left_black.svg'), url('/assets/arrow_left_black.png');
 			background-size: 60% auto;
@@ -34,6 +38,10 @@ section {
 			background-position: center center;
 		}
 		.carousel-forward-button {
+			position: fixed;
+			top: 0;
+			right: 0;
+			bottom: 0;
 			background-image: url('/assets/arrow_right_black.png');
 			background-image: none, url('/assets/arrow_right_black.svg'), url('/assets/arrow_right_black.png');
 			background-size: 60% auto;
@@ -41,13 +49,13 @@ section {
 			background-position: center center;
 		}
 		.carousel-inner {
-			float: left;
-			margin-top: 90px;
-			margin-bottom: 5%;
+			margin-left: auto;
+			margin-right: auto;
 			width: 80%;
 			.item {
-				padding: 5%;
-				min-height: 200px;
+				padding: 0 5%;
+				width: 90%;
+				min-height: 300px;
 				h2 {
 					font-size: 42px;
 					line-height: 56px;
@@ -79,6 +87,9 @@ section {
 		padding-right: 20px;
 		float: left;
 		padding: 5px 20px;
+		&:first-child {
+			border-left: 0;
+		}
 	}
 	.favorite {
 		border-left: 0;
@@ -90,6 +101,7 @@ section {
 			height: auto;
 			margin-top: -4px;
 			opacity: 0.2;
+			cursor: pointer;
 		}
 		.btn-favorite.true {
 			opacity: 0.8;

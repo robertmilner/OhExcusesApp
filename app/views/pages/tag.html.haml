@@ -4,16 +4,7 @@
 	= render 'layouts/notice', :notice => notice, :type => "info"
 
 %section
-	#carousel-excuses.carousel.slide
 
-		.carousel-previous-button
-			.carousel-previous-icon
+	= render 'search_box', form_link: app_tag_path, placeholder: 'Search by tags'
 
-		.carousel-inner
-			= render 'search_box', form_link: app_tag_path, placeholder: 'Search by tags'
-			= render 'carousel', :excuses => @excuses
-
-		.carousel-forward-button
-			.carousel-forward-icon
-
-%span Can you believe it? There are no excuses with this tag... Yet. Why don't you create one?
+	= render 'carousel', :excuses => @excuses

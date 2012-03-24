@@ -1,0 +1,53 @@
+@media screen and (max-width: 640px) {
+
+
+	section {
+		#carousel-excuses {
+			.carousel-inner {
+				.item {
+					h2 {
+						font-size: 24px;
+						line-height: 32px;
+					}
+				}
+			}
+		}
+	}
+	.details {
+		div {
+			border-left: 1px solid #ccc;
+			border-right: 1px solid #fff;
+			float: left;
+			&:first-child {
+				border-left: 0;
+				padding-left: 0;
+			}
+			&:last-child {
+				border-right: 0;
+			}
+		}
+		.favorite {
+			border-left: 0;
+			padding-left: 0;
+			form {
+				text-align: left;
+				margin-left: 10px;
+			}
+		}
+		.location {
+			border-right: 0;
+			padding-right: 0;
+			ul {
+				margin-left: 10px;
+			}
+		}
+		.tags {
+			border: 0;
+			padding-left: 0;
+			ul {
+				margin-left: 10px;
+			}
+		}
+	}
+
+}

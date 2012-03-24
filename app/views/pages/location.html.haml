@@ -4,16 +4,7 @@
 	= render 'layouts/notice', :notice => notice, :type => "info"
 
 %section
-	#carousel-excuses.carousel.slide
 
-		.carousel-previous-button
-			.carousel-previous-icon
+	= render 'search_box', form_link: app_location_path, placeholder: 'Search by locations'
 
-		.carousel-inner
-			= render 'search_box', form_link: app_location_path, placeholder: 'Search by locations'
-			= render 'carousel', :excuses => @excuses
-
-		.carousel-forward-button
-			.carousel-forward-icon
-
-%span Can you believe it? There are no excuses from this location... Yet. Why don't you create one?
+	= render 'carousel', :excuses => @excuses

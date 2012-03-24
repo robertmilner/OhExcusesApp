@@ -27,7 +27,6 @@ footer {
 				color: #fff;
 				display: block;
 				text-align: center;
-				@include font_face;
 				@include text_shadow(0, 3px, 0, $black);
 				img {
 					width: 40%;

@@ -23,16 +23,17 @@ input[type="submit"] {
   cursor: pointer;
   -webkit-appearance: button;
 }
-.search {
+.space, .search {
+	min-width: 300px;
 	max-width: 620px;
-	width: 100%;
+	width: 80%;
 	margin-left: auto;
 	margin-right: auto;
-	padding: 3px 0;
-
+	padding-top: 86px;
+	padding-bottom: 40px;
 	.form-search {
-		padding-left: 14px;
-		padding-right: 14px;
+		padding-left: 5%;
+		padding-right: 5%;
 		.search-query {
 
 			width: 100%;
@@ -43,6 +44,9 @@ input[type="submit"] {
 			border-radius: 14px;
 		}
 	}
+}
+.space {
+	padding-bottom: 0;
 }
 
 /*button,

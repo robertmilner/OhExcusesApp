@@ -7,25 +7,40 @@ class PagesController < ApplicationController
   def excuse
     @user = @current_user
     # arguments [0] = total number of results
-    @excuses = Excuse.random(5)
+    @excuses = Excuse.find_excuses_by_random(5)
   end
 
   def search
     @user = @current_user
-    # arguments [0] = params[:search], [1] = total number of results
-    @excuses = Excuse.search(params[:search], 5)
+    if params[:name]
+      @excuses = Excuse.find_excuses_by_named_text(params[:name], 5)
+    elsif params[:search]
+      @excuses = Excuse.search_excuses(params[:search], 5)
+    else
+      @excuses = Excuse.find_excuses_by_random(5)
+    end
   end
 
   def location
     @user = @current_user
-    # arguments [0] = params[:search], [1] = total number of results
-    @excuses = Excuse.search_location(params[:search], 5)
+    if params[:name]
+      @excuses = Location.find_excuses_by_named_location(params[:name], 5)
+    elsif params[:search]
+      @excuses = Location.find_excuses_by_searched_locations(params[:search], 5)
+    else
+      @excuses = Excuse.find_excuses_by_random(5)
+    end
   end
 
   def tag
     @user = @current_user
-    # @excuses = Excuse.search_tag(params[:search], 5)
-    @excuses = Excuse.limit(5)
+    if params[:name]
+      @excuses = Tag.find_excuses_by_named_tag(params[:name], 5)
+    elsif params[:search]
+      @excuses = Tag.find_excuses_by_searched_tags(params[:search], 5)
+    else
+      @excuses = Excuse.find_excuses_by_random(5)
+    end
   end
 
   def favorite
@@ -40,7 +55,12 @@ class PagesController < ApplicationController
 
   def user
     @user = @current_user
-    @excuses = @user.excuses
+    @excuses = @user.excuses.limit(5)
     @favorites = @user.favorable(:type => :excuse, :delve => :true)
+  end
+  
+  def robert
+    @user = User.find_by_name('Robert Milner')
+    @excuses = @user.excuses.all
   end
 end

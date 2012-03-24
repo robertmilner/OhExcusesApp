@@ -9,8 +9,9 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require global/reset
- *= require global/fontface
  *= require global/global
+ *= require alert
+ *= require global/notice
  *= require global/forms
  *= require global/header
  *= require carousel
@@ -18,4 +19,5 @@
  *= require global/section
  *= require global/nav
  *= require global/footer
+ *= require responsive
 */

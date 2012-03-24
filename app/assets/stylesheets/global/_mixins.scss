@@ -1,9 +1,5 @@
 /* mixins */
 
-@mixin font_face {
-	font-family: "IcoMoonRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
 @mixin text_shadow($hor, $vert, $blur, $color) {
 	-moz-text-shadow: $hor $vert $blur $color;
 	-webkit-text-shadow: $hor $vert $blur $color;

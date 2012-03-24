@@ -1,15 +1,16 @@
 OhExcusesApp2::Application.routes.draw do
 
   # pages_controller
-  get     '/excuse'           => 'pages#excuse',      :as => :app_excuse
-  get     '/search'           => 'pages#search',      :as => :app_search
-  get     '/search/:search'   => 'pages#search'
-  get     '/location'         => 'pages#location',    :as => :app_location
-  get     '/location/:search' => 'pages#location'
-  get     '/tag'              => 'pages#tag',         :as => :app_tag
-  get     '/tag/:search'      => 'pages#tag'
-  get     '/favorite'         => 'pages#favorite',    :as => :app_favorite
-  get     '/user'             => 'pages#user',        :as => :app_user
+  get     '/robert'             => 'pages#robert',      :as => :app_robert
+  get     '/excuse'             => 'pages#excuse',      :as => :app_excuse
+  get     '/search/:name'       => 'pages#search'
+  get     '/search'             => 'pages#search',      :as => :app_search
+  get     '/location/:name'     => 'pages#location'
+  get     '/location'           => 'pages#location',    :as => :app_location
+  get     '/tag/:name'          => 'pages#tag'
+  get     '/tag'                => 'pages#tag',         :as => :app_tag
+  get     '/favorite'           => 'pages#favorite',    :as => :app_favorite
+  get     '/user'               => 'pages#user',        :as => :app_user
 
   # sessions_controller
   get     '/login'    => 'sessions#new',      :as => :login

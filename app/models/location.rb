@@ -8,18 +8,29 @@ class Location < ActiveRecord::Base
 
   # callbacks
 
-  # methods
-  def self.search(search, total)
+  # class methods
+  def self.find_excuses_by_named_location(name, total)
+    location = where('name LIKE ?', "%#{name}%")
+    if location.empty?
+      []
+    else
+      location.first.excuses.order('random()').limit(total)
+    end
+  end
+
+  def self.find_excuses_by_searched_locations(search, total)
     if search
       # split the params[:search] query and get length
       search_length = search.split.length
       # completely fuzzy search, no word order necessary 
-      find( :all, 
-            :conditions => [(['name LIKE ?'] * search_length).join(' AND ')] + search.split.map { |name| "%#{name}%" }, 
-            :limit => total, 
-            :order => 'random()' )
+      locations = find( :all,
+                        :conditions => [(['name LIKE ?'] * search_length).join(' OR ')] + search.split.map { |name| "%#{name}%" }, 
+                        :limit => total)
+      excuses = locations.flat_map { |i| i.excuses.limit(total) }
+      return excuses.shuffle
     else
-      find(:all, :limit => total, :order => 'random()')
+      []
     end
   end
+
 end
