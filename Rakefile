@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-OhExcusesApp2::Application.load_tasks
+OhExcusesApp::Application.load_tasks

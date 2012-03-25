@@ -1,4 +1,4 @@
-OhExcusesApp2::Application.routes.draw do
+OhExcusesApp::Application.routes.draw do
 
   # pages_controller
   get     '/robert'             => 'pages#robert',      :as => :app_robert
