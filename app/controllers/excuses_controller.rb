@@ -1,6 +1,7 @@
 class ExcusesController < ApplicationController
 
   # filters
+  before_filter :require_login
   before_filter :current_user
 
   # GET /excuses

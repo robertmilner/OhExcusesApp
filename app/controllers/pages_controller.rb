@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
 
   # setting the current user if there is one
-  before_filter :require_login, :only => :user
+  before_filter :require_login, :only => [:favorite, :user]
   before_filter :current_user
 
   def excuse

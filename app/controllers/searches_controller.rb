@@ -1,4 +1,9 @@
 class SearchesController < ApplicationController
+
+  # filters
+  before_filter :require_login, :except => [:new, :create]
+  before_filter :current_user
+
   # GET /searches
   # GET /searches.json
   def index

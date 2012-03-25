@@ -1,5 +1,8 @@
 class SessionsController < ApplicationController
 
+  # filters
+  before_filter :require_login, :except => [:new, :create]
+
   def new
   end
 
