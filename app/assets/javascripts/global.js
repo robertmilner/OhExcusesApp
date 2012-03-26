@@ -40,13 +40,13 @@ $(document).ready(function($) {
 		}
 	});
 
-	
-	$(document.documentElement).keydown(function (event) {
-		if (event.keyCode == 32) {
-			$('.carousel').carousel('next');
-			event.preventDefault();
-		}
-	});
+	// Spacebar Key
+	// $(document.documentElement).keypress(function (event) {
+	// 	if (event.keyCode == 32) {
+	// 		$('.carousel').carousel('next');
+	// 		event.preventDefault();
+	// 	}
+	// });
 
 	// Pages - Favorite Buttom
 	$('.btn-favorite').click(function(e) {

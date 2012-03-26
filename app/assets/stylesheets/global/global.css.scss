@@ -43,6 +43,13 @@ a {
 		cursor: pointer;
 	}
 }
+::selection {
+	background: $green;
+}
+::-moz-selection {
+	background: $blue;
+}
+
 .clearfix {
 	clear: both;
 }
