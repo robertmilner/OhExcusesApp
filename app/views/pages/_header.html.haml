@@ -6,7 +6,4 @@
 			%li= link_to "", new_excuse_path, :title => "Write an excuse", :class => "btn btn-write"
 	- else
 		%ul
-			%li
-				%a{ http: "http://twitter.com/ohexcuses", title: "Follow on Twitter", class: "btn btn-twitter-bird" }
-					Follow
-					%span
+			%li= link_to "Follow", "http://twitter.com/ohexcuses", title: "Follow on Twitter", class: "btn btn-twitter-bird"
