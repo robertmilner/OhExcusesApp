@@ -4,4 +4,4 @@
 //= require bootstrap-transition
 //= require bootstrap-tooltip
 //= require bootstrap-carousel
-//= require_tree .
+//= require global

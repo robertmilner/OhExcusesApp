@@ -58,7 +58,8 @@ header {
 				padding: 6px;
 				background-color: $red_shade;
 				@include border_radius(10px);
-				background-image: url('/assets/write.svg');
+				background-image: url('/assets/write.png');
+				background-image: none, url('/assets/write.svg'), url('/assets/write.png');
 				background-size: 26px;
 				background-repeat: no-repeat;
 				background-position: center center;
