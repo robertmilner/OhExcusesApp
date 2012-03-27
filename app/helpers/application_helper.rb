@@ -6,6 +6,8 @@ module ApplicationHelper
     base_title = "Oh, Excuses"
     if page_title.empty?
       base_title
+    elsif page_title == base_title
+      "#{base_title} | An Excuse Generator"
     else
       "#{page_title} | #{base_title}"
     end

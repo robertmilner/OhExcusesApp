@@ -39,6 +39,7 @@ header {
 		margin: 5px 2%;
 		li {
 			float: left;
+			@include text_shadow(0, 2px, 0, $red);
 			a.btn {
 				font-size: 13px;
 				height: 26px;
@@ -50,6 +51,15 @@ header {
 				&:hover {
 					@include box_shadow_inset(0, 0, 2px, 1px, rgba(0, 0, 0, 0.2));
 				}
+			}
+			a.btn-twitter-bird {
+				text-transform: uppercase;
+				font-size: 11px;
+				padding-right: 40px;
+				background-image: url('/assets/twitter-bird-red.png');
+				background-size: 30px 30px;
+				background-repeat: no-repeat;
+				background-position: 90% center;
 			}
 			a.btn-write {
 				height: 24px;
@@ -67,3 +77,4 @@ header {
 		}
 	}
 }
+

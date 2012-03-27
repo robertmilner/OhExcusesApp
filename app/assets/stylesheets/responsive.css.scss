@@ -51,3 +51,18 @@
 	}
 
 }
+header {
+	ul {
+		li {
+			a.btn {
+				font-size: 10px;
+				line-height: 25px;
+				margin: 0 6px;
+			}
+			a.btn-twitter-bird {
+				padding-right: 30px;
+				background-size: 22px 22px;
+			}
+		}
+	}
+}
